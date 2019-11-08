@@ -1,0 +1,116 @@
+[System]
+Name='T20'
+Type='mamdani'
+Version=2.0
+NumInputs=5
+NumOutputs=4
+NumRules=30
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Total_runs'
+Range=[0 20000]
+NumMFs=3
+MF1='Low':'trimf',[0 1000 2000]
+MF2='Average':'trimf',[1000 3500 6000]
+MF3='High':'trimf',[5000 12500 20000]
+
+[Input2]
+Name='Highest_score'
+Range=[0 300]
+NumMFs=3
+MF1='Low':'trimf',[0 20 40]
+MF2='Average':'trimf',[30 70 110]
+MF3='High':'trimf',[80 190 300]
+
+[Input3]
+Name='Batting_Average'
+Range=[0 70]
+NumMFs=3
+MF1='Low':'trimf',[0 10 20]
+MF2='Average':'trimf',[15 30 45]
+MF3='HIgh':'trimf',[30 50 70]
+
+[Input4]
+Name='Wickets'
+Range=[0 500]
+NumMFs=3
+MF1='Low':'trimf',[0 30 60]
+MF2='Average':'trimf',[50 150 250]
+MF3='High':'trimf',[200 350 500]
+
+[Input5]
+Name='Stumpings'
+Range=[0 70]
+NumMFs=3
+MF1='Low':'trimf',[0 15 30]
+MF2='Average':'trimf',[20 35 50]
+MF3='HIgh':'trimf',[40 55 70]
+
+[Output1]
+Name='Batsman'
+Range=[0 1]
+NumMFs=3
+MF1='Poor':'trimf',[-0.4 0 0.4]
+MF2='Average':'trimf',[0.1 0.5 0.9]
+MF3='Good':'trimf',[0.6 1 1.4]
+
+[Output2]
+Name='Bowler'
+Range=[0 1]
+NumMFs=3
+MF1='Poor':'trimf',[-0.4 0 0.4]
+MF2='Average':'trimf',[0.1 0.5 0.9]
+MF3='Good':'trimf',[0.6 1 1.4]
+
+[Output3]
+Name='Wicket_keeper'
+Range=[0 1]
+NumMFs=3
+MF1='Poor':'trimf',[-0.4 0 0.4]
+MF2='Average':'trimf',[0.1 0.5 0.9]
+MF3='Good':'trimf',[0.6 1 1.4]
+
+[Output4]
+Name='All-Rounder'
+Range=[0 1]
+NumMFs=3
+MF1='Poor':'trimf',[-0.4 0 0.4]
+MF2='Average':'trimf',[0.1 0.5 0.9]
+MF3='Good':'trimf',[0.6 1 1.4]
+
+[Rules]
+1 1 1 1 1, 1 1 1 1 (1) : 1
+1 1 1 1 2, 1 1 2 1 (1) : 1
+1 1 1 1 3, 1 1 3 1 (1) : 1
+1 1 1 2 1, 1 2 1 1 (1) : 1
+1 1 1 3 1, 1 3 1 1 (1) : 1
+1 1 2 1 1, 2 1 1 1 (1) : 1
+1 2 3 1 1, 3 1 1 1 (1) : 1
+1 3 3 1 1, 3 1 1 1 (1) : 1
+1 3 2 1 1, 3 1 1 1 (1) : 1
+2 1 1 1 1, 1 1 1 1 (1) : 1
+2 2 2 1 1, 2 1 1 1 (1) : 1
+2 3 2 1 1, 3 1 1 1 (1) : 1
+2 3 3 1 1, 3 1 1 1 (1) : 1
+3 1 1 1 1, 1 1 1 1 (1) : 1
+3 2 1 1 1, 1 1 1 1 (1) : 1
+3 3 1 1 1, 1 1 1 1 (1) : 1
+3 1 3 1 1, 3 1 1 1 (1) : 1
+3 2 3 1 1, 3 1 1 1 (1) : 1
+3 3 3 1 1, 3 1 1 1 (1) : 1
+2 1 2 2 1, 2 2 1 2 (1) : 1
+2 2 2 2 1, 2 2 1 3 (1) : 1
+3 2 2 2 1, 3 2 1 3 (1) : 1
+3 3 2 2 1, 3 2 1 3 (1) : 1
+3 3 3 2 1, 3 2 1 3 (1) : 1
+3 3 3 3 1, 3 3 1 3 (1) : 1
+3 3 3 3 2, 3 3 2 3 (1) : 1
+3 3 3 3 3, 3 3 3 3 (1) : 1
+3 3 3 1 3, 3 1 3 3 (1) : 1
+3 3 3 1 2, 3 1 2 3 (1) : 1
+3 3 3 1 1, 3 1 1 2 (1) : 1

@@ -1,0 +1,55 @@
+[System]
+Name='CarControl'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=2
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='distance'
+Range=[0 50]
+NumMFs=3
+MF1='small':'trimf',[-20 0 5.09259259259259]
+MF2='avg':'trimf',[5.3968253968254 25.3968253968254 45.3968253968254]
+MF3='large':'trimf',[36.8783068783069 56.8783068783069 76.8783068783069]
+
+[Input2]
+Name='relative_velocity'
+Range=[-50 50]
+NumMFs=3
+MF1='negative':'trimf',[-81.8 -41.8 -10.4497354497355]
+MF2='zero':'trimf',[-9.66 1.06 8.33333333333333]
+MF3='positive':'trimf',[10 50 90]
+
+[Output1]
+Name='acceleration'
+Range=[0 120]
+NumMFs=3
+MF1='low':'trimf',[-48 0 39.5238095238095]
+MF2='medium':'trimf',[39.5 60 79.5238095238095]
+MF3='high':'trimf',[79.5238095238095 121 169]
+
+[Output2]
+Name='decleration'
+Range=[0 100]
+NumMFs=3
+MF1='low':'trimf',[-40 0 29.2328042328042]
+MF2='medium':'trimf',[28.4 50 69.7089947089947]
+MF3='high':'trimf',[69.7089947089947 99.5 139]
+
+[Rules]
+2 3, 1 3 (1) : 1
+2 3, 1 3 (1) : 1
+3 3, 1 3 (1) : 1
+1 2, 1 1 (1) : 1
+2 2, 1 1 (1) : 1
+3 2, 1 1 (1) : 1
+1 1, 3 1 (1) : 1
+2 1, 3 1 (1) : 1
+3 1, 3 1 (1) : 1

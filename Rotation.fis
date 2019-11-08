@@ -1,0 +1,30 @@
+[System]
+Name='Rotation'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=2
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='temperature'
+Range=[0 100]
+NumMFs=2
+MF1='high':'trapmf',[60 70 80 95]
+MF2='veryHigh':'trimf',[87 100 200]
+
+[Output1]
+Name='rotation'
+Range=[0 100]
+NumMFs=2
+MF1='quiteSlow':'trimf',[0 10 40]
+MF2='slow':'trimf',[10 40 60]
+
+[Rules]
+1, 2 (1) : 1
+2, 1 (1) : 1

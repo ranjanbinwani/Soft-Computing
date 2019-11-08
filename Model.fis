@@ -1,0 +1,30 @@
+[System]
+Name='Model'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='temperature'
+Range=[30 100]
+NumMFs=3
+MF1='mf1':'trimf',[2 30 58]
+MF2='mf2':'trimf',[37 65 93]
+MF3='mf3':'trimf',[72 100 128]
+
+[Output1]
+Name='rotation'
+Range=[10 60]
+NumMFs=3
+MF1='mf1':'trimf',[-10 10 30]
+MF2='mf2':'trimf',[15 35 55]
+MF3='mf3':'trimf',[40 60 80]
+
+[Rules]
